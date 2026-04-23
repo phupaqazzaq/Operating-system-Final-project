@@ -51,7 +51,7 @@ def load_data(filepath):
 
     elapsed = time.perf_counter() - start
     toxic = sum(labels)
-    print(f"  Loaded {len(texts):,} samples in {elapsed:.3f}s (mmap)")
+    print(f"  Loaded {len(texts):,} samples in {elapsed:.3f}s (read)")
     print(f"  Toxic: {toxic:,} ({toxic/len(labels)*100:.1f}%) | Non-toxic: {len(labels)-toxic:,}")
     return texts, labels
 
