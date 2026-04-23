@@ -30,16 +30,12 @@ MODEL_DIR = BASE_DIR / "model"
 
 
 def load_data(filepath):
-    """Load dataset using mmap (OS memory management)."""
-    print(f"[1/4] Loading data via mmap()...")
+    """Load dataset (OS file management)."""
+    print(f"[1/4] Loading data via read()...")
     start = time.perf_counter()
 
-    fd = os.open(str(filepath), os.O_RDONLY)
-    size = os.fstat(fd).st_size
-    mm = mmap.mmap(fd, size, access=mmap.ACCESS_READ)
-    raw = mm.read().decode("utf-8-sig")
-    mm.close()
-    os.close(fd)
+    with open(str(filepath), 'r', encoding='utf-8-sig') as f:
+        raw = f.read()
 
     reader = csv.DictReader(io.StringIO(raw))
     texts, labels = [], []
