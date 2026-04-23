@@ -1,0 +1,9 @@
+{
+  "model_type": "tfidf",
+  "accuracy": 0.8973966309341501,
+  "train_samples": 18282,
+  "test_samples": 4571,
+  "features": 50000,
+  "keyword_count": 81,
+  "timestamp": "2026-04-17 10:37:56"
+}
